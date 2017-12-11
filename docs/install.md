@@ -1,13 +1,7 @@
 # Installing Open Angel Arena
 You have to set up several things before you can run a local instance of OAA for development.
 
-## System Dependencies
-Start by installing these programs:
- * Windows
- * [Steam](http://steampowered.com)
- * [nodejs](http://nodejs.org)
- * [Github client](http://desktop.github.com/) Use the download link at the bottom of the page
- * [Sublime Text 3](http://www.sublimetext.com/) **optional**
+Here is an example change for the Git client
 
 Install the Dota 2 Workshop Tools.
  * From within steam, right click on `Dota 2` and select `Properties` at the bottom
