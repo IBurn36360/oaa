@@ -1,6 +1,6 @@
 # GitHub Contibuting Guide
 
-Updated 2017-12-05
+Updated 2017-12-16
 
 [< Git][0]
 
@@ -58,7 +58,6 @@ Though these names have special meaning in Git, they are not hard-set, meaning t
 First, follow the [Installation Process](/docs/install.md) in order to create a Fork of openangelarena/oaa to work from.
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
 
-## Forking
 ### Forking
 > A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
 
@@ -80,6 +79,18 @@ Also described in the Installation Process, cloning copies your fork to your com
 - Clone your repo to \dota 2 beta\addons
 - Verify Clone to your repo.
 Now we should have a local copy of your fork of [OpenAngelArena/oaa]
+
+### What is a branch and why are you asking me to make one for EVERY FEATURE?
+>A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is master. As you initially make commits, you’re given a master branch that points to the last commit you made. Every time you commit, it moves forward automatically.
+
+Branches act as a way to maintain several sets of changes to the same repository without them being in the same set of history (And all coming over as a giant clump when a Pull Request is made).  This allows you to make small, specialized sets of changes, additions and fixes without all of them running together when you go to make a Pull Request.  As a good general rule of thumb, you should make a new branch for every new feature, fix or addition and not work on the master branch so you can have a place to start new branches without changes that have yet to be incorporated into Open Angel Arena.
+
+  ![GitHub Application Branch Pt.1](../.images/GitHub_Application_Branch_1.png)
+Creating a new branch is as simple as going to the text field next to `New`, typing in a name and clicking the new button.  You will be prompted what branch to base your new one on.  Almost every time you get this prompt, `Master` is the branch you want, as other branches may have unmerged changes that you don't want to deal with.
+
+Branches may be published at any time (Sent to GitHub so it may be Pull Requested) by clicking on `Publish branch` in the main bar of the application.
+
+  ![GitHub Application Branch Pt.2](../.images/GitHub_Application_Branch_2.png)
 
 ### Open Git Power Shell
 Git Power Shell enables you to control Git using a variety of commands. You can open Git Power Shell in a number of ways:
@@ -122,18 +133,6 @@ When updating, the newest changes are downloaded from OpenAngelArena/oaa to our 
  git push
 Everything up-to-date
 ```
-
-### What is a branch and why are you asking me to make one for EVERY FEATURE?
->A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is master. As you initially make commits, you’re given a master branch that points to the last commit you made. Every time you commit, it moves forward automatically.
-
-Branches act as a way to maintain several sets of changes to the same repository without them being in the same set of history (And all coming over as a giant clump when a Pull Request is made).  This allows you to make small, specialized sets of changes, additions and fixes without all of them running together when you go to make a Pull Request.  As a good general rule of thumb, you should make a new branch for every new feature, fix or addition and not work on the master branch so you can have a place to start new branches without changes that have yet to be incorporated into Open Angel Arena.
-
-  ![GitHub Application Branch Pt.1](../.images/GitHub_Application_Branch_1.png)
-Creating a new branch is as simple as going to the text field next to `New`, typing in a name and clicking the new button.  You will be prompted what branch to base your new one on.  Almost every time you get this prompt, `Master` is the branch you want, as other branches may have unmerged changes that you don't want to deal with.
-
-Branches may be published at any time (Sent to GitHub so it may be Pull Requested) by clicking on `Publish branch` in the main bar of the application.
-
-  ![GitHub Application Branch Pt.2](../.images/GitHub_Application_Branch_2.png)
 
 ### Workflow
 When working, you want to keep two Branches. The first is your local master branch. Switch to it using:
@@ -266,11 +265,11 @@ The repository menu up at the top bar of the application has several commands th
   
 Once the application starts up, the origin Remote will have a quick-action button associated with it.  From here you can easily Fetch (Look for changes), pull and push to the Remote with a click.
 
-  ![GitHub Application Basics Pt.8](../.images/GitHub_Application_Basics_8.png)
+  ![GitHub Application Basics Pt.7](../.images/GitHub_Application_Basics_7.png)
   
 There is an easy link menu for going directly to the `Create a Pull Request` page on GitHub for the branch you are currently on.  The behavior of this is very contextual depending on a LOT of factors (The upstream Remote state, the origin Remote state and the branch state), so I will not go over what it will do once opened.
 
-  ![GitHub Application Basics Pt.9](../.images/GitHub_Application_Basics_9.png)
+  ![GitHub Application Basics Pt.8](../.images/GitHub_Application_Basics_8.png)
   
 There is also a dialogue for creating and managing branches within your repository.  Use branches as a way of isolating features or other changes away from one another (Try to keep your work precise to what you want to fix.  It is generally bad practice to do a combination of fixes, features and tweaks that a completely unrelated in the same branch.  There is a point to doing several changes in one branch at once when it makes sense, such as a set of changes and tweaks to address a particular problem.  In that case, having many separate changes in one branch is fine.)
 

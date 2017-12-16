@@ -1,6 +1,6 @@
 # Installing Open Angel Arena
 
-Updated 2017-12-11
+Updated 2017-12-16
 
 [\[< Setup\]](./)[0]
 
