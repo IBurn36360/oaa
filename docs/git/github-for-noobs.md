@@ -6,10 +6,9 @@ Updated 2017-12-05
 
 For ease of navigation, the installation is broken up into sections and can be jumped to by clicking any of the links below.
 
-1. [Terminology](#required-software)
-2. [Getting Started](#required-software)
-3. [GitHub Basics (Website)](#required-software)
-4. [GitHub Basics (Application)](#required-software)
+1. [Terminology](#terminology)
+2. [Getting Started](#getting-started)
+4. [GitHub Basics (Application)](#git-basics-application)
 
 ## Intro
 This is an introduction to GitHub and Git on the example of contributing to OpenAngelArena. Nearly all of the implementation (from KV files, localization, scripts, graphics, to models) can be streamlined by using a very basic software tool called a Version Control System (VCS). The one we're using is called Git and the repository (server storage) we are using is called GitHub. Essentially, Git enables the development teams to branch out and work on the exact same files as each other without overwriting each other's work. Also, every person can have multiple development branches of the same files available simultaneously using only a couple very basic commands. This enables one to modify files in a development branch without effecting the others (like if you wanted to test abilties you script but didn't want to have to overwrite and manually back up everytime you change something). Furthermore, Git tracks history, so if you make a mistake, you can just reset to ANY point in the development (even if you delete files). Yes it's going to take some effort to learn.
@@ -51,11 +50,12 @@ First, follow the [Installation Process](/docs/install.md) in order to create a 
 If you do not already have a GitHub.com Account, create one [here](https://GitHub.com/join).
 
 ## Forking
-As described in the Installation Process, forking creates a simultaneous instance of oaa within your own GitHub repository. During the Installation Process, you should have already done the following:
-- Goto OpenAngelArena/oaa.
-- Click Fork
-- Choose where to Fork: Fork OpenAngelArena/oaa to YOURUSERNAME/oaa
-- Done! If you go to `GitHub.com/YOURUSERNAME/oaa` you'll see your own fork of [OpenAngelArena/oaa].
+### Forking
+> A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
+
+  ![Forking the OAA Respository Pt.1](../.images/GitHub_Basics_Fork_1.png)
+
+You MUST Fork the OAA repository to your account in order to do any form of development, as new users cannot write directly to the master repository at all.
 
 ### Cloning
 Also described in the Installation Process, cloning copies your fork to your computer with the GitHub client (or by clicking "Clone or Download" on the main page of `GitHub.com/openangelarena/oaa`. As mentioned, you can do basic things with the GitHub Client, but you will want to familiarize yourself with the command-line. GitHub Client comes with a built-in version of PowerShell (a command-line interface which enables you to type Git commands). You should have already done the following during the Installation Process:
@@ -156,27 +156,6 @@ remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
 To https://GitHub.com/Chronophylos/oaa
    1554bf2..3be214d  GitHub-for-noobs - GitHub-for-noobs
 ```
-
-### Creating a PR
-
-To create a PR goto [OpenAngelArena/oaa](https://GitHub.com/OpenAngelArena/oaa) on GitHub
-- Click 'New Pull Request'
-- Click `compare across forks`
-- Click `head fork` and choose your Repository
-- Click `compare` and select your Branch
-- Now fill in the form
-- 'Create pull request' and you're done!
-
-
-
-
-## GitHub Basics (Website)
-### Forking
-> A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
-
-  ![Forking the OAA Respository Pt.1](../.images/GitHub_Basics_Fork_1.png)
-
-You MUST Fork the OAA repository to your account in order to do any form of development, as new users cannot write directly to the master repository at all.
 
 ### Making A Pull Request
 > A pull request is the method by which you ask for a set of changes you have made to be integrated into the selected repository.

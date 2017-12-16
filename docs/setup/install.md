@@ -19,7 +19,7 @@ For ease of navigation, the installation is broken up into sections and can be j
 - Go to the DLC tab of the window that pops up
 - Check the `INSTALL` box next to `Dota 2 Workshop Tools DLC`
   ![Dota 2 Tools Install Pt. 2](../.images/OAA_Install_D2Tools_2.png)
-- It will download (This can take a bit)
+- It will download once you close that window (This can take a bit)
 #### 3. [GitHub client OR GitHub CLI](http://desktop.github.com/)
 #### 4. [NodeJS](http://nodejs.org)
 #### 5. [Sublime Text 3](http://www.sublimetext.com/) (Or any other text editor that supports `.editorconfig`)
