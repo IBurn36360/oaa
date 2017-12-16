@@ -75,7 +75,9 @@ Also described in the Installation Process, cloning copies your fork to your com
 - Click Save.
 - Click on the "+" in the upper left corner.
 - Select Clone.
+  ![Installation Clone Pt.1](../.images/Installation_Clone_1.png)
 - Select your Account and the forked `oaa` repository.
+  ![Installation Clone Pt.2](../.images/Installation_Clone_2.png)
 - Clone your repo to \dota 2 beta\addons
 - Verify Clone to your repo.
 Now we should have a local copy of your fork of [OpenAngelArena/oaa]
