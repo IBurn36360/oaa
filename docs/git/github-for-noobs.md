@@ -42,6 +42,15 @@ At this point just familiarize yourself with the following terminology:
 - `Tracked files` - Any files that were in the latest snapshot.
 - `Untracked files` - Unstaged files not in the last snapshot.
 
+### What the heck is a remote?
+>Remotes are the short term for `Remote Repository` and are used to describe any repository that **IS NOT THE ONE YOU ARE CURRENTLY ON**.
+
+By default, remote repositories in specific relations to the current repository are given very specific names, and their descriptions are as follows:
+- **Origin**: The origin remote is the name of the repository that you cloned from.  This, in OAA, is the fork you created when doing the initial setup steps.
+- **Upstream**: The upstream remote is the name of the next nearest branch sitting above whatever fork you have created.  This, in most cases, is the actual master repository, but bear in mind that this is not always the case (Especially in large projects with many groups separated into intermediate repositories).
+
+Though these names have special meaning in Git, they are not hard-set, meaning that you may rename remotes as needed if there is a workflow where **Origin** and **Upstream** might cause confusion.  From here on out, I will refer to `Remote Repositories` as simply `Remotes`
+
 ## Getting Started
 
 ### Setup
@@ -114,6 +123,18 @@ When updating, the newest changes are downloaded from OpenAngelArena/oaa to our 
 Everything up-to-date
 ```
 
+### What is a branch and why are you asking me to make one for EVERY FEATURE?
+>A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is master. As you initially make commits, you’re given a master branch that points to the last commit you made. Every time you commit, it moves forward automatically.
+
+Branches act as a way to maintain several sets of changes to the same repository without them being in the same set of history (And all coming over as a giant clump when a Pull Request is made).  This allows you to make small, specialized sets of changes, additions and fixes without all of them running together when you go to make a Pull Request.  As a good general rule of thumb, you should make a new branch for every new feature, fix or addition and not work on the master branch so you can have a place to start new branches without changes that have yet to be incorporated into Open Angel Arena.
+
+  ![GitHub Application Branch Pt.1](../.images/GitHub_Application_Branch_1.png)
+Creating a new branch is as simple as going to the text field next to `New`, typing in a name and clicking the new button.  You will be prompted what branch to base your new one on.  Almost every time you get this prompt, `Master` is the branch you want, as other branches may have unmerged changes that you don't want to deal with.
+
+Branches may be published at any time (Sent to GitHub so it may be Pull Requested) by clicking on `Publish branch` in the main bar of the application.
+
+  ![GitHub Application Branch Pt.2](../.images/GitHub_Application_Branch_2.png)
+
 ### Workflow
 When working, you want to keep two Branches. The first is your local master branch. Switch to it using:
 ```
@@ -176,29 +197,6 @@ By default, this is the only way to make changes to Open Angel Arena.  This proc
 ## Git Basics (Application)
 
 The Windows GitHub client is a good place to view your changes if you are not used to using git through the CLI (There is a CLI walkthrough [here](#manual-installation-of-oaa).  The following will go through the complete process, from the GitHub application, of making a code change and getting it to the point where you may make a Pull Request.
-
-### What the heck is a remote?
->To better aid terminology later on, I am going to take a moment to explain remotes here.  If you understand what a remote is, and their general naming purpose, then you may skip this and move on.
-
->Remotes are the short term for `Remote Repository` and are used to describe any repository that **IS NOT THE ONE YOU ARE CURRENTLY ON**.
-
-By default, remote repositories in specific relations to the current repository are given very specific names, and their descriptions are as follows:
-- **Origin**: The origin remote is the name of the repository that you cloned from.  This, in OAA, is the fork you created when doing the initial setup steps.
-- **Upstream**: The upstream remote is the name of the next nearest branch sitting above whatever fork you have created.  This, in most cases, is the actual master repository, but bear in mind that this is not always the case (Especially in large projects with many groups separated into intermediate repositories).
-
-Though these names have special meaning in Git, they are not hard-set, meaning that you may rename remotes as needed if there is a workflow where **Origin** and **Upstream** might cause confusion.  From here on out, I will refer to `Remote Repositories` as simply `Remotes`
-
-### What is a branch and why are you asking me to make one for EVERY FEATURE?
->A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is master. As you initially make commits, you’re given a master branch that points to the last commit you made. Every time you commit, it moves forward automatically.
-
-Branches act as a way to maintain several sets of changes to the same repository without them being in the same set of history (And all coming over as a giant clump when a Pull Request is made).  This allows you to make small, specialized sets of changes, additions and fixes without all of them running together when you go to make a Pull Request.  As a good general rule of thumb, you should make a new branch for every new feature, fix or addition and not work on the master branch so you can have a place to start new branches without changes that have yet to be incorporated into Open Angel Arena.
-
-  ![GitHub Application Branch Pt.1](../.images/GitHub_Application_Branch_1.png)
-Creating a new branch is as simple as going to the text field next to `New`, typing in a name and clicking the new button.  You will be prompted what branch to base your new one on.  Almost every time you get this prompt, `Master` is the branch you want, as other branches may have unmerged changes that you don't want to deal with.
-
-Branches may be published at any time (Sent to GitHub so it may be Pull Requested) by clicking on `Publish branch` in the main bar of the application.
-
-  ![GitHub Application Branch Pt.2](../.images/GitHub_Application_Branch_2.png)
   
 ### Syncing your master with the master OAA repository
 
