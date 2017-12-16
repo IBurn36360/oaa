@@ -7,10 +7,8 @@ Updated 2017-12-11
 For ease of navigation, the installation is broken up into sections and can be jumped to by clicking any of the links below.
 
 1. [Required Software](#required-software)
-2. [GitHub Basics (Website)](#github-basics-website)
-3. [Git Basics (Application)](#git-basics-application)
-4. [Installing OAA](#installing-oaa)
-5. [Manual installation of OAA (For CLI users or people who cannot get d2am working correctly)](#manual-installation-of-oaa)
+2. [Installing OAA](#installing-oaa)
+3. [Manual installation of OAA (For CLI users or people who cannot get d2am working correctly)](#manual-installation-of-oaa)
 
 ## Required Software
 
@@ -27,133 +25,6 @@ For ease of navigation, the installation is broken up into sections and can be j
 #### 5. [Sublime Text 3](http://www.sublimetext.com/) (Or any other text editor that supports `.editorconfig`)
 - The plugin for sublime can be found [here.](https://github.com/sindresorhus/editorconfig-sublime)
 
-## GitHub Basics (Website)
-### Forking
-> A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
-
-  ![Forking the OAA Respository Pt.1](../.images/GitHub_Basics_Fork_1.png)
-
-You MUST Fork the OAA repository to your account in order to do any form of development, as new users cannot write directly to the master repository at all.
-
-### Making A Pull Request
-> A pull request is the method by which you ask for a set of changes you have made to be integrated into the selected repository.
-
-  ![Making a Pull Request Pt.1](../.images/GitHub_Basics_PR_1.png)
-  
-  ---
-  
-  ![Making a Pull Request Pt.2](../.images/GitHub_Basics_PR_2.png)
-  
-Making a pull request starts from the branch where your work is being done in.  You can see any freshly changed branches on your repository fork on GitHub, or you can see it from the branches view, where all branches are listed.
-  
-  ![Making a Pull Request Pt.3](../.images/GitHub_Basics_PR_3.png)
-
-
-By default, this is the only way to make changes to Open Angel Arena.  This process will integrate directly into any testing capability that has been built for Open Angel Arena, allow project contributors to suggest changes or fixes and allow for general discussion.  A Pull request can only be merge into Open Angel Arena by core contributors.
-
-## Git Basics (Application)
-
-The Windows GitHub client is a good place to view your changes if you are not used to using git through the CLI (There is a CLI walkthrough [here](#manual-installation-of-oaa).  The following will go through the complete process, from the GitHub application, of making a code change and getting it to the point where you may make a Pull Request.
-
-### What the heck is a remote?
->To better aid terminology later on, I am going to take a moment to explain remotes here.  If you understand what a remote is, and their general naming purpose, then you may skip this and move on.
-
->Remotes are the short term for `Remote Repository` and are used to describe any repository that **IS NOT THE ONE YOU ARE CURRENTLY ON**.
-
-By default, remote repositories in specific relations to the current repository are given very specific names, and their descriptions are as follows:
-- **Origin**: The origin remote is the name of the repository that you cloned from.  This, in OAA, is the fork you created when doing the initial setup steps.
-- **Upstream**: The upstream remote is the name of the next nearest branch sitting above whatever fork you have created.  This, in most cases, is the actual master repository, but bear in mind that this is not always the case (Especially in large projects with many groups separated into intermediate repositories).
-
-Though these names have special meaning in Git, they are not hard-set, meaning that you may rename remotes as needed if there is a workflow where **Origin** and **Upstream** might cause confusion.  From here on out, I will refer to `Remote Repositories` as simply `Remotes`
-
-### What is a branch and why are you asking me to make one for EVERY FEATURE?
->A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is master. As you initially make commits, you’re given a master branch that points to the last commit you made. Every time you commit, it moves forward automatically.
-
-Branches act as a way to maintain several sets of changes to the same repository without them being in the same set of history (And all coming over as a giant clump when a Pull Request is made).  This allows you to make small, specialized sets of changes, additions and fixes without all of them running together when you go to make a Pull Request.  As a good general rule of thumb, you should make a new branch for every new feature, fix or addition and not work on the master branch so you can have a place to start new branches without changes that have yet to be incorporated into Open Angel Arena.
-
-  ![GitHub Application Branch Pt.1](../.images/GitHub_Application_Branch_1.png)
-Creating a new branch is as simple as going to the text field next to `New`, typing in a name and clicking the new button.  You will be prompted what branch to base your new one on.  Almost every time you get this prompt, `Master` is the branch you want, as other branches may have unmerged changes that you don't want to deal with.
-
-Branches may be published at any time (Sent to GitHub so it may be Pull Requested) by clicking on `Publish branch` in the main bar of the application.
-
-  ![GitHub Application Branch Pt.2](../.images/GitHub_Application_Branch_2.png)
-  
-### Syncing your master with the master OAA repository
-
->It is generally a good idea to keep your repository as up-to-date as possible.  This will allow the test suite tools like Travis to better check your code and prevent any problem from showing up as a result of all of the other changes constantly happening.
-
-In order to perform more complex or advanced tasks, you will need to be comfortable with typing commands into the command prompt.  If you are not comfortable with that, then you MUST USE BRANCHES FOR EVERY CHANGE!  If you do not, there is no method in the application to reset those changes away.
-
-  ![GitHub Application Command Prompt Pt.1](../.images/GitHub_Application_Command_Prompt_1.png)
-  
-Using the menu in the application will open either a PowerShell instance or a command prompt instance in your repository, so you can get to entering commands immediately.  In order to pull the master repository, you can simply run the following:
-
-- `git pull upstream master`
-
-IF YOU ARE NOT ABLE TO PULL, PLEASE SEE THE FOLLOWING SECTION ON RESETTING YOUR BRANCH.
-
-  ![GitHub Application Pull Pt.1](../.images/GitHub_Application_Pull_1.png)
-  
-  ![GitHub Application Pull Pt.2](../.images/GitHub_Application_Pull_2.png)
-  
-The console output will vary, but anything looking even remotely like what is shown indicates there was a success.  Any errors will be stated at the end of the command output.
-
-### Resetting your branch so it is in sync with the master OAA repository
->This process will bring your master branch up-to-date with the master OAA repository, meaning the changes you make will be in the same state as an immediate merge.  This ensures your code will not be as affected by the changes of others.
-
-Resetting your master branch is NOT something that you can accomplish in the application and is NOT a reversible process.  Once reset, any changes you have made on your master branch are gone.  open up the command prompt in the same manner that is shown from the application in the above section and run the following commands IN ORDER:
-
-- `git fetch upstream master`
-- `git reset --hard upstream master`
-
-  ![GitHub Application Resetting Pt.1](../.images/GitHub_Application_Resetting_1.png)
-
-### Viewing the changes you have made
-
-  ![GitHub Application Basics Pt.1](../.images/GitHub_Application_Basics_1.png)
-
-By default, the changes you have made to OAA will show up in the application window under the `Changes` list.  When viewing changes, red indicates items that have been removed, green indicates items that have been added and yellow indicates items that have been modified (All 3 are visible in the screenshot.  There were lined added and removed from a file, which had been modified).
-
-  ![GitHub Application Basics Pt.2](../.images/GitHub_Application_Basics_2.png)
-  
-There is a right-click menu of options that you have on the files list if you need to make additional changes or slight amendments to files.  This is not the best way to actually modify files, as **ONLY CHANGED FILES WILL SHOW UP**, but it is good to be able to correct a mistake before making a commit.  Please keep in mind that, unless you want to learn the command line interface, **commits are FINAL**.
-
-  ![GitHub Application Basics Pt.3](../.images/GitHub_Application_Basics_3.png)
-  
-At the bottom left you have 2 text fields, one for a tittle and one for a description.  As a general rule of thumb, commit titles should be a very brief title for the purpose of a commit, like `Fix T1 core drops`.  The description is where you can get a bit more detailed if there is something that other developers need to be aware of.  In general this should be reserved for things like internal API changes and modifications that could break things for other people.  **Please do not re iterate what your code change does in the description.  If your code is straight forward or easy to look at and understand, putting a detailed description does not help you**
-
-  ![GitHub Application Basics Pt.4](../.images/GitHub_Application_Basics_4.png)
-  
-One a commit has been made, you will normally be automatically be taken to the `History` tab within the application.  This will allow you to see the commits and changes leading up to the latest commit made (There is a limit to the number of commits you can see.  If you need to look at a very old commit, please use the tools on the website).
-
-  ![GitHub Application Basics Pt.5](../.images/GitHub_Application_Basics_5.png)
-
-The repository menu up at the top bar of the application has several commands that will be of use when pushing and/or pulling code from Remotes.
-
-- `Push` - This will attempt to push commits that have been made up to the remote you specify.
-- `Pull` - This will attempt to pull, meaning to retrieve and incorporate, changes into the current branch.
-- `Remove` - This will delete the repository.
-
-
-- `View On GitHub` - This will open up the Fork you have created for yourself in your default Internet Browser.
-- `Open in Command Prompt` - This will open up a Command Prompt window (Or PowerShell if you shoce PowerShell as the default command prompt during installation).
-- `Show in Explorer` - This will open up the folder where the repository lives on your machine.
-- `Open in External editor` - This will attempt to open up a program for editing the project.  By default, this will try to find Atom.
-
-- `Repository Settings` - This will open a dialogue for modifying certain aspects of the Repository.
-
-  ![GitHub Application Basics Pt.6](../.images/GitHub_Application_Basics_6.png)
-  
-Once the application starts up, the origin Remote will have a quick-action button associated with it.  From here you can easily Fetch (Look for changes), pull and push to the Remote with a click.
-
-  ![GitHub Application Basics Pt.8](../.images/GitHub_Application_Basics_8.png)
-  
-There is an easy link menu for going directly to the `Create a Pull Request` page on GitHub for the branch you are currently on.  The behavior of this is very contextual depending on a LOT of factors (The upstream Remote state, the origin Remote state and the branch state), so I will not go over what it will do once opened.
-
-  ![GitHub Application Basics Pt.9](../.images/GitHub_Application_Basics_9.png)
-  
-There is also a dialogue for creating and managing branches within your repository.  Use branches as a way of isolating features or other changes away from one another (Try to keep your work precise to what you want to fix.  It is generally bad practice to do a combination of fixes, features and tweaks that a completely unrelated in the same branch.  There is a point to doing several changes in one branch at once when it makes sense, such as a set of changes and tweaks to address a particular problem.  In that case, having many separate changes in one branch is fine.)
-
 ## Installing OAA
 ### Find where the DOTA 2 beta is installed
 
@@ -167,7 +38,6 @@ COPY THIS PATH!  You MUST know where your DOTA 2 installation is in order to clo
 
 ### Clone Open Angel Arena into the addons folder
 
-- Fork the Open Angel Arena Repository
 - Launch your GitHub Client (And log into it)
 - Click `Clone a repository`
   ![Installing OAA Pt.1](../.images/Installation_Clone_1.png)
