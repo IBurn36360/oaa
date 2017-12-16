@@ -229,7 +229,9 @@ Resetting your master branch is NOT something that you can accomplish in the app
 
   ![GitHub Application Resetting Pt.1](../.images/GitHub_Application_Resetting_1.png)
 
-### Viewing the changes you have made
+### Application workflow
+
+To start, see the [section on branches](#what-is-a-branch-and-why-are-you-asking-me-to-make-one-for-every-feature)) to ensure you are on a new branch before proceeding.
 
   ![GitHub Application Basics Pt.1](../.images/GitHub_Application_Basics_1.png)
 
